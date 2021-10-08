@@ -16,8 +16,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
-  <meta name="author" content="Creative Tim">
+  <meta name="description" content="Robo Bionics">
+  <meta name="author" content="Robo Bionics">
   <title>Robo Bionics-Login</title>
   <!-- Favicon -->
   <link rel="icon" href="https://www.robobionics.in/wp-content/uploads/2020/12/logo_03.png" sizes="195x195" type="image/png">
@@ -28,10 +28,29 @@
   <link rel="stylesheet" href=" {% static 'vendor/@fortawesome/fontawesome-free/css/all.min.css' %} " type="text/css">
   <!-- Argon CSS -->
   <link rel="stylesheet" href=" {% static 'css/argon.css' %} " type="text/css">
+   
+    <script>
+      function terms_changed(termsCheckBox){
+    //If the checkbox has been checked
+    if(termsCheckBox.checked){
+        //Set the disabled property to FALSE and enable the button.
+        document.getElementById("submit_button").disabled = false;
+    } else{
+        //Otherwise, disable the submit button.
+        document.getElementById("submit_button").disabled = true;
+    }
+}
+    </script>
+   
+
 </head>
+
+
+
 
 <body class="bg-default">
   <!-- Navbar -->
+  
   <nav id="navbar-main" class="navbar navbar-horizontal navbar-transparent navbar-main navbar-expand-lg navbar-light">
     <div class="container">
       <a class="navbar-brand" href="#">
@@ -161,23 +180,26 @@
                   </div>
                 </div>
                 <div class="custom-control custom-control-alternative custom-checkbox">
-                  <input class="custom-control-input" id=" customCheckLogin" type="checkbox">
-                  <label class="custom-control-label" for=" customCheckLogin">
+                  <input class="custom-control-input" type="checkbox" id="terms_and_conditions" value="1" onclick="terms_changed(this)">
+                  <label class="custom-control-label" for="terms_and_conditions">
                     <span class="text-muted">Remember me</span>
                   </label>
                 </div>
                 <div class="text-center">
-                  <button type="submit" class="btn btn-primary my-4">Sign in</button>
+                  <button type="submit" class="btn btn-primary my-4" id="submit_button" disabled>Sign in</button>
                 </div>
               </form>
             </div>
           </div>
+          
+          
+
           <div class="row mt-3">
             <div class="col-6">
               <a href="#" class="text-light"><small>Forgot password?</small></a>
             </div>
             <div class="col-6 text-right">
-              <a href="#" class="text-light"><small>Create new account</small></a>
+              <a href="/register" class="text-light"><small>Create new account</small></a>
             </div>
           </div>
         </div>
